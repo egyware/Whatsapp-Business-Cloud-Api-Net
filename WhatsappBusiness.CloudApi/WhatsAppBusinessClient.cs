@@ -1516,6 +1516,22 @@ namespace WhatsappBusiness.CloudApi
         }
 
         /// <summary>
+        /// Get Assigned WhatsApp Business Account
+        /// </summary>
+        /// <param name="cancellationToken">Cancellation token</param>
+        /// <returns>SharedWABAIDResponse</returns>
+        public virtual async Task<SharedWABAResponse> GetAssignedWabaAsync(string businessId, WhatsAppBusinessCloudApiConfig? cloudApiConfig = null, CancellationToken cancellationToken = default)
+        {
+            if (cloudApiConfig is not null)
+            {
+                _whatsAppConfig = cloudApiConfig;
+            }
+
+            var formattedWhatsAppEndpoint = WhatsAppBusinessRequestEndpoint.GetAssignedWaba.Replace("{{Business-ID}}", businessId);
+            return await WhatsAppBusinessGetAsync<SharedWABAResponse>(formattedWhatsAppEndpoint, cancellationToken);
+        }
+
+        /// <summary>
         /// Get Shared WhatsApp Business Account
         /// </summary>
         /// <param name="cancellationToken">Cancellation token</param>

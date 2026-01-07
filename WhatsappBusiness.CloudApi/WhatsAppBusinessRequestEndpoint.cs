@@ -121,6 +121,11 @@ namespace WhatsappBusiness.CloudApi
         /// </summary>
         public static string SetTwoFactor { get; private set; } = "{{Phone-Number-ID}}";
 
+        /// <summary>
+        /// Get Assigned Whatsapp Bussiness Account
+        /// </summary>
+        public static string GetAssignedWaba { get; private set; } = "{{Business-ID}}/assigned_whatsapp_business_accounts";
+
         public static string GetSharedWABAID { get; private set; } = "debug_token?input_token={{Input-Token}}";
 
         public static string GetListSharedWABA { get; private set; } = "{{Business-ID}}/client_whatsapp_business_accounts";
